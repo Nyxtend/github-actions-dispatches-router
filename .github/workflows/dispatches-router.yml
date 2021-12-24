@@ -12,10 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Setup basics and print out data
+      - name: Print environment
         run: |
           echo Starting the dispatches router
           echo Input parameters:
-          echo
-          echo ${{ github.event.client_payload }}
+          TEMPFILE=data.json
+          echo Creating temporary file ${TEMPFILE}
+          echo "${{ github.event.client_payload }}" > ${TEMPFILE}
+          
+          echo File contents:
+          cat ${TEMPFILE}
