@@ -28,3 +28,11 @@ jobs:
           
           echo File contents:
           cat ${TEMPFILE}
+
+      # Scan the repos under the Nyxtend organization for tags
+      - name: Send update to dispatches router
+        run: |
+          curl -o repos.json \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/orgs/Nyxtend/repos
+          cat repos.json
