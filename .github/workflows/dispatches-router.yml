@@ -22,7 +22,7 @@ jobs:
           echo Input parameters:
           TEMPFILE=data.json
           echo "Creating temporary file ${TEMPFILE}"
-          echo "${{ fromJson(github.event.client_payload) }}" > ${TEMPFILE}
+          echo "${{ github.event.client_payload }}" > ${TEMPFILE}
           
           echo File contents:
           cat ${TEMPFILE}
