@@ -11,11 +11,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      
+      - name: Print startup message
+        run: |
+          echo Starting the dispatches router
+          
       # Setup basics and print out data
       - name: Print environment
         run: |
-          echo Starting the dispatches router
           echo Input parameters:
           TEMPFILE=data.json
           echo Creating temporary file ${TEMPFILE}
